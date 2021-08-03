@@ -1,5 +1,3 @@
-$red: blue;
+@use 'abstracts/abstracts';
 
-body {
-    background: $red;
-}
+@use 'components/buttons';
