@@ -1,3 +1,12 @@
+@use 'base/reset';
+@use 'base/typography';
+
 @use 'abstracts/abstracts';
+
+@use 'layout/body';
+@use 'layout/container';
+@use 'layout/header';
+@use 'layout/navigation';
+@use 'layout/footer';
 
 @use 'components/buttons';

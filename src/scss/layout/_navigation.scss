@@ -1,0 +1,111 @@
+@use '../abstracts' as *;
+/*
+///////////////////////////NAVIGATION\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+*/
+
+nav {
+  display: flex;
+  align-items: center;
+  // justify-content: space-between;
+}
+
+[aria-current]:not([aria-current="false"]) {
+  color: $black;
+}
+
+/*////////////////HAMBURGER MENU ANIMATION WITH CLIPPED SHAPE\\\\\\\\\\\\\\\\\\\\\\\*/
+
+.menu-btn-container {
+  top: 40%;
+  right: -20px;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  width: 50px;
+  cursor: pointer;
+}
+
+.menu-btn-container:before,
+.menu-btn-container:after,
+.menu-btn-container div {
+  background: #fff;
+  content: "";
+  display: block;
+  height: 7px;
+  margin: 7px 0;
+  transition: 0.5s;
+  clip-path: polygon(0 0, 100% 0%, 95% 100%, 0% 100%);
+}
+
+.menu-btn-container:hover:before,
+.menu-btn-container:hover:after {
+  background: $white;
+}
+.menu-btn-container.animate:before {
+  transform: translateY(12px) rotate(135deg);
+  clip-path: none;
+  background: $white;
+}
+.menu-btn-container.animate:after {
+  transform: translateY(-12px) rotate(-135deg);
+  clip-path: none;
+  background: $white;
+}
+.menu-btn-container.animate div {
+  transform: scale(0);
+}
+
+.custom-menu-class {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 100px;
+  right: 10%;
+  width: 30%;
+  height: 100%;
+  opacity: 0;
+  @media (max-width: $br-small) {
+    width: 100%;
+    right: 0;
+    left: 0;
+  }
+  ul {
+    padding: 10px 0 10px 20px;
+    border-radius: 5px;
+  }
+
+  ul li {
+    padding: 0 10px;
+  }
+  .services-menu-text a {
+    cursor: default;
+  }
+
+  a {
+    padding-bottom: 2px;
+    font-weight: 600;
+    color: $white;
+    transition: all 0.1s ease-in-out;
+    font-size: 1.5rem;
+    padding-right: 5px;
+  }
+  a:hover {
+    color: $white;
+  }
+  .services-menu-text a:hover {
+    color: $white;
+  }
+  li::after {
+    content: " >";
+    font-size: 1rem;
+    color: $white;
+  }
+  li.services-menu-text::after {
+    content: ":";
+  }
+}
+
+.custom-menu-class.menu-show {
+  display: flex;
+  opacity: 1;
+  z-index: 200;
+}

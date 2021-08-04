@@ -1,0 +1,84 @@
+@use '../abstracts' as *;
+/*
+///////////////////////////HEADER\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+*/
+header {
+  background-color: $white;
+  padding: 15px;
+}
+
+/*hide the strapline in header.php on the home page*/
+
+.home .strapline-large-screen {
+  display: none;
+}
+
+/*show hide straplines depending on screen size*/
+.strapline-large-screen {
+  display: none;
+}
+.strapline-medium-screen {
+  display: none;
+}
+@media (min-width: 1000px) {
+  .strapline-large-screen {
+    display: block;
+    padding: 4em 0 0 1em;
+  }
+  .strapline-large-screen h2 {
+    font-size: 1.25rem;
+    color: $white;
+  }
+}
+@media (max-width: 999px) {
+  .strapline-medium-screen {
+    display: block;
+  }
+  .strapline-medium-screen h2 {
+    margin-top: 2rem;
+    font-size: 1.25rem;
+    color: $white;
+  }
+}
+/*hero images - the caption position is altered from Metasliders own css*/
+.hero {
+  position: relative;
+}
+@media (min-width: 800px) {
+  .hero .metaslider .caption-wrap {
+    position: absolute;
+    top: 15%;
+    left: 10%;
+    background: transparent;
+    color: #000;
+    opacity: 1;
+    margin: 0;
+    display: block;
+    width: 50%;
+    line-height: 1.4em;
+  }
+  .hero h2 {
+    font-size: 3.25rem;
+    font-weight: normal;
+    margin-bottom: 2rem;
+  }
+  .hero .metaslider .flexslider .slides p {
+    font-size: 1.25rem;
+    margin-bottom: 0.1rem;
+    font-weight: bold;
+  }
+}
+.hero {
+  position: relative;
+}
+@media (max-width: 800px) {
+  .hero .metaslider .caption-wrap {
+    position: relative;
+  }
+}
+.design .hero h2 {
+  color: #000;
+}
+.design .hero h2 {
+  color: white;
+}

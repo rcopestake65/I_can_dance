@@ -1,0 +1,43 @@
+@use '../abstracts' as *;
+/*
+///////////////////////////CONTAINER\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+*/
+.container {
+    width: 90%;
+    max-width: 1500px;
+    padding: 0;
+    margin: 0 auto;
+    position: relative;
+}
+@media (max-width: $br-small) {
+    .container {
+        width: 95%;
+        padding: 0 10px;
+    }
+    .wp-block-getwid-section__wrapper {
+        padding: 0;
+    }
+}
+.container-full-width {
+    width: 100%;
+    margin: auto;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    padding: 0;
+    z-index: 10;
+}
+/*container experiment
+.container-test {
+    width: min(50ch, 100vw - 2rem);
+    margin: 2rem auto;
+}
+*/
+/*flex control of three col layout od Assets, Design & Finance*/
+@media screen and (max-width: 990px) {
+    .flex-control {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,2 @@
+// adding styles to css folder
+sass --watch src/scss:css
