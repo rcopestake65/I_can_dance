@@ -3,109 +3,159 @@
 ///////////////////////////NAVIGATION\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 */
 
-nav {
-  display: flex;
-  align-items: center;
-  // justify-content: space-between;
-}
-
-[aria-current]:not([aria-current="false"]) {
+nav a {
   color: $black;
+  text-decoration: none;
+}
+.menu,
+.submenu {
+  list-style-type: none;
 }
 
-/*////////////////HAMBURGER MENU ANIMATION WITH CLIPPED SHAPE\\\\\\\\\\\\\\\\\\\\\\\*/
-
-.menu-btn-container {
-  top: 40%;
-  right: -20px;
-  transform: translate(-50%, -50%);
-  position: absolute;
-  width: 50px;
-  cursor: pointer;
+.item {
+  padding: 10px;
 }
-
-.menu-btn-container:before,
-.menu-btn-container:after,
-.menu-btn-container div {
-  background: #fff;
-  content: "";
-  display: block;
-  height: 7px;
-  margin: 7px 0;
-  transition: 0.5s;
-  clip-path: polygon(0 0, 100% 0%, 95% 100%, 0% 100%);
+.item:not(.button) a:hover,
+.item a:hover::after {
+  color: $orange;
 }
-
-.menu-btn-container:hover:before,
-.menu-btn-container:hover:after {
-  background: $white;
-}
-.menu-btn-container.animate:before {
-  transform: translateY(12px) rotate(135deg);
-  clip-path: none;
-  background: $white;
-}
-.menu-btn-container.animate:after {
-  transform: translateY(-12px) rotate(-135deg);
-  clip-path: none;
-  background: $white;
-}
-.menu-btn-container.animate div {
-  transform: scale(0);
-}
-
-.custom-menu-class {
-  display: none;
-  flex-direction: column;
-  position: absolute;
-  top: 100px;
-  right: 10%;
-  width: 30%;
-  height: 100%;
-  opacity: 0;
-  @media (max-width: $br-small) {
-    width: 100%;
-    right: 0;
-    left: 0;
-  }
-  ul {
-    padding: 10px 0 10px 20px;
-    border-radius: 5px;
-  }
-
-  ul li {
-    padding: 0 10px;
-  }
-  .services-menu-text a {
-    cursor: default;
-  }
-
-  a {
-    padding-bottom: 2px;
-    font-weight: 600;
-    color: $white;
-    transition: all 0.1s ease-in-out;
-    font-size: 1.5rem;
-    padding-right: 5px;
-  }
-  a:hover {
-    color: $white;
-  }
-  .services-menu-text a:hover {
-    color: $white;
-  }
-  li::after {
-    content: " >";
-    font-size: 1rem;
-    color: $white;
-  }
-  li.services-menu-text::after {
-    content: ":";
-  }
-}
-
-.custom-menu-class.menu-show {
+/* Mobile menu */
+.menu {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.menu li a {
+  display: block;
+  padding: 15px 5px;
+}
+.menu li.subitem a {
+  padding: 15px;
+}
+.toggle {
+  order: 1;
+  font-size: 20px;
+}
+
+.item {
+  order: 3;
+  width: 100%;
+  text-align: center;
+  display: none;
+  transition: visibility 0s, opacity 0.5s linear;
+}
+.active .item {
+  display: block;
   opacity: 1;
-  z-index: 200;
+  animation: anim 0.5s ease-in-out;
+}
+
+/* Submenu up from mobile screens */
+.section {
+  background-color: $orange;
+}
+.submenu {
+  // display: none;
+  // opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
+
+  min-width: 200px;
+}
+.submenu-active .submenu {
+  display: block;
+  opacity: 1;
+  animation: anim 0.5s ease-in-out;
+}
+@keyframes anim {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  100% {
+    display: block;
+    transition: opacity 0.5s ease-in-out;
+  }
+}
+.has-submenu i {
+  font-size: 12px;
+}
+// .has-submenu > a::after {
+//   font-family: "Font Awesome 5 Free";
+//   font-size: 12px;
+//   line-height: 16px;
+//   font-weight: 900;
+//   content: "\f078";
+//   color: $black;
+//   padding-left: 5px;
+// }
+.subitem a {
+}
+
+/* Desktop menu */
+@media all and (min-width: 1100px) {
+  .menu {
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    background: none;
+  }
+  .logo {
+    order: 0;
+  }
+  .item {
+    order: 1;
+    position: relative;
+    display: block;
+    width: auto;
+  }
+  .button {
+    order: 2;
+  }
+  .submenu {
+    display: none;
+    background: $orange;
+  }
+  // .submenu-active .submenu {
+  //   display: block;
+  //   position: absolute;
+  //   left: 0;
+  //   top: 68px;
+  // }
+  .submenu-active .submenu a:hover {
+    color: $white;
+  }
+  .submenu-active .submenu.about {
+    display: block;
+    position: absolute;
+    left: -60px;
+    top: 70px;
+  }
+  .submenu-active .submenu.children {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 70px;
+  }
+  .submenu-active .submenu.families {
+    display: block;
+    position: absolute;
+    left: -60px;
+    top: 70px;
+  }
+  .submenu-active .submenu.schools {
+    display: block;
+    position: absolute;
+    left: -20px;
+    top: 70px;
+  }
+  .submenu-active .submenu.learning {
+    display: block;
+    position: absolute;
+    left: -40px;
+    top: 70px;
+  }
+  .toggle {
+    display: none;
+  }
 }

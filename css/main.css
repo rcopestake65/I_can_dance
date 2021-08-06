@@ -123,6 +123,13 @@ h4 {
   font-family: "Trebuchet MS", sans-serif;
 }
 
+/*gradient text*/
+.gradient-text {
+  background-image: linear-gradient(90deg, red, yellow);
+  background-clip: text;
+  color: transparent;
+}
+
 /*
 //////////////////////////////BODY\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 */
@@ -137,8 +144,6 @@ body {
   font-size: 1rem;
   line-height: 1.5;
   margin: 0 auto;
-  max-width: 1000px;
-  border: 1px solid grey;
 }
 
 /*
@@ -150,245 +155,183 @@ body {
   padding: 0;
   margin: 0 auto;
   position: relative;
+  max-width: 1000px;
+  padding: 0 1rem;
+  -webkit-box-shadow: 0px 1px 5px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 5px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  height: 100vh;
 }
 
 @media (max-width: 500px) {
   .container {
-    width: 95%;
+    width: 100%;
     padding: 0 10px;
-  }
-
-  .wp-block-getwid-section__wrapper {
-    padding: 0;
-  }
-}
-.container-full-width {
-  width: 100%;
-  margin: auto;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  left: 0;
-  background-color: #fff;
-  padding: 0;
-  z-index: 10;
-}
-
-/*container experiment
-.container-test {
-    width: min(50ch, 100vw - 2rem);
-    margin: 2rem auto;
-}
-*/
-/*flex control of three col layout od Assets, Design & Finance*/
-@media screen and (max-width: 990px) {
-  .flex-control {
-    flex-direction: column;
   }
 }
 /*
 ///////////////////////////HEADER\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 */
-header {
-  background-color: white;
-  padding: 15px;
-}
-
-/*hide the strapline in header.php on the home page*/
-.home .strapline-large-screen {
-  display: none;
-}
-
-/*show hide straplines depending on screen size*/
-.strapline-large-screen {
-  display: none;
-}
-
-.strapline-medium-screen {
-  display: none;
-}
-
-@media (min-width: 1000px) {
-  .strapline-large-screen {
-    display: block;
-    padding: 4em 0 0 1em;
-  }
-
-  .strapline-large-screen h2 {
-    font-size: 1.25rem;
-    color: white;
-  }
-}
-@media (max-width: 999px) {
-  .strapline-medium-screen {
-    display: block;
-  }
-
-  .strapline-medium-screen h2 {
-    margin-top: 2rem;
-    font-size: 1.25rem;
-    color: white;
-  }
-}
-/*hero images - the caption position is altered from Metasliders own css*/
-.hero {
-  position: relative;
-}
-
-@media (min-width: 800px) {
-  .hero .metaslider .caption-wrap {
-    position: absolute;
-    top: 15%;
-    left: 10%;
-    background: transparent;
-    color: #000;
-    opacity: 1;
-    margin: 0;
-    display: block;
-    width: 50%;
-    line-height: 1.4em;
-  }
-
-  .hero h2 {
-    font-size: 3.25rem;
-    font-weight: normal;
-    margin-bottom: 2rem;
-  }
-
-  .hero .metaslider .flexslider .slides p {
-    font-size: 1.25rem;
-    margin-bottom: 0.1rem;
-    font-weight: bold;
-  }
-}
-.hero {
-  position: relative;
-}
-
-@media (max-width: 800px) {
-  .hero .metaslider .caption-wrap {
-    position: relative;
-  }
-}
-.design .hero h2 {
-  color: #000;
-}
-
-.design .hero h2 {
-  color: white;
-}
-
 /*
 ///////////////////////////NAVIGATION\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 */
-nav {
-  display: flex;
-  align-items: center;
-}
-
-[aria-current]:not([aria-current=false]) {
+nav a {
   color: #2c2e35;
+  text-decoration: none;
 }
 
-/*////////////////HAMBURGER MENU ANIMATION WITH CLIPPED SHAPE\\\\\\\\\\\\\\\\\\\\\\\*/
-.menu-btn-container {
-  top: 40%;
-  right: -20px;
-  transform: translate(-50%, -50%);
-  position: absolute;
-  width: 50px;
-  cursor: pointer;
+.menu,
+.submenu {
+  list-style-type: none;
 }
 
-.menu-btn-container:before,
-.menu-btn-container:after,
-.menu-btn-container div {
-  background: #fff;
-  content: "";
+.item {
+  padding: 10px;
+}
+
+.item:not(.button) a:hover,
+.item a:hover::after {
+  color: #ff9029;
+}
+
+/* Mobile menu */
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.menu li a {
   display: block;
-  height: 7px;
-  margin: 7px 0;
-  transition: 0.5s;
-  clip-path: polygon(0 0, 100% 0%, 95% 100%, 0% 100%);
+  padding: 15px 5px;
 }
 
-.menu-btn-container:hover:before,
-.menu-btn-container:hover:after {
-  background: white;
+.menu li.subitem a {
+  padding: 15px;
 }
 
-.menu-btn-container.animate:before {
-  transform: translateY(12px) rotate(135deg);
-  clip-path: none;
-  background: white;
+.toggle {
+  order: 1;
+  font-size: 20px;
 }
 
-.menu-btn-container.animate:after {
-  transform: translateY(-12px) rotate(-135deg);
-  clip-path: none;
-  background: white;
-}
-
-.menu-btn-container.animate div {
-  transform: scale(0);
-}
-
-.custom-menu-class {
+.item {
+  order: 3;
+  width: 100%;
+  text-align: center;
   display: none;
-  flex-direction: column;
-  position: absolute;
-  top: 100px;
-  right: 10%;
-  width: 30%;
-  height: 100%;
-  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
 }
-@media (max-width: 500px) {
-  .custom-menu-class {
-    width: 100%;
-    right: 0;
-    left: 0;
+
+.active .item {
+  display: block;
+  opacity: 1;
+  animation: anim 0.5s ease-in-out;
+}
+
+/* Submenu up from mobile screens */
+.section {
+  background-color: #ff9029;
+}
+
+.submenu {
+  transition: visibility 0s, opacity 0.5s linear;
+  min-width: 200px;
+}
+
+.submenu-active .submenu {
+  display: block;
+  opacity: 1;
+  animation: anim 0.5s ease-in-out;
+}
+
+@keyframes anim {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  100% {
+    display: block;
+    transition: opacity 0.5s ease-in-out;
   }
 }
-.custom-menu-class ul {
-  padding: 10px 0 10px 20px;
-  border-radius: 5px;
-}
-.custom-menu-class ul li {
-  padding: 0 10px;
-}
-.custom-menu-class .services-menu-text a {
-  cursor: default;
-}
-.custom-menu-class a {
-  padding-bottom: 2px;
-  font-weight: 600;
-  color: white;
-  transition: all 0.1s ease-in-out;
-  font-size: 1.5rem;
-  padding-right: 5px;
-}
-.custom-menu-class a:hover {
-  color: white;
-}
-.custom-menu-class .services-menu-text a:hover {
-  color: white;
-}
-.custom-menu-class li::after {
-  content: " >";
-  font-size: 1rem;
-  color: white;
-}
-.custom-menu-class li.services-menu-text::after {
-  content: ":";
+.has-submenu i {
+  font-size: 12px;
 }
 
-.custom-menu-class.menu-show {
-  display: flex;
-  opacity: 1;
-  z-index: 200;
-}
+/* Desktop menu */
+@media all and (min-width: 1100px) {
+  .menu {
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    background: none;
+  }
 
+  .logo {
+    order: 0;
+  }
+
+  .item {
+    order: 1;
+    position: relative;
+    display: block;
+    width: auto;
+  }
+
+  .button {
+    order: 2;
+  }
+
+  .submenu {
+    display: none;
+    background: #ff9029;
+  }
+
+  .submenu-active .submenu a:hover {
+    color: white;
+  }
+
+  .submenu-active .submenu.about {
+    display: block;
+    position: absolute;
+    left: -60px;
+    top: 70px;
+  }
+
+  .submenu-active .submenu.children {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 70px;
+  }
+
+  .submenu-active .submenu.families {
+    display: block;
+    position: absolute;
+    left: -60px;
+    top: 70px;
+  }
+
+  .submenu-active .submenu.schools {
+    display: block;
+    position: absolute;
+    left: -20px;
+    top: 70px;
+  }
+
+  .submenu-active .submenu.learning {
+    display: block;
+    position: absolute;
+    left: -40px;
+    top: 70px;
+  }
+
+  .toggle {
+    display: none;
+  }
+}
 /*
 ///////////////////////////FOOTER\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 */
@@ -493,5 +436,11 @@ footer .footer-social-menu {
 }
 
 /*///////////////////Buttons\\\\\\\\\\\\\\\\\\\\\*/
+/*///////////////Ribbons\\\\\\\\\\\\\\\\\*/
+.ribbon {
+  margin-left: -30px;
+  margin-top: -100px;
+  min-width: 120%;
+}
 
 /*# sourceMappingURL=main.css.map */
