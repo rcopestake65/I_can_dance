@@ -80,6 +80,7 @@ select {
 */
 p {
   margin-bottom: 1rem;
+  font-size: 1.2rem;
   color: #2c2e35;
 }
 
@@ -151,16 +152,13 @@ body {
 */
 .container {
   width: 90%;
-  max-width: 1500px;
+  max-width: 1200px;
   padding: 0;
   margin: 0 auto;
   position: relative;
-  max-width: 1000px;
-  padding: 0 1rem;
   -webkit-box-shadow: 0px 1px 5px 3px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 1px 5px 3px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  height: 100vh;
 }
 
 @media (max-width: 500px) {
@@ -169,15 +167,22 @@ body {
     padding: 0 10px;
   }
 }
+main {
+  padding: 1rem;
+}
+
 /*
 ///////////////////////////HEADER\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 */
+header {
+  padding: 0 10px;
+}
+
 /*
 ///////////////////////////NAVIGATION\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 */
-nav a {
-  color: #2c2e35;
-  text-decoration: none;
+nav {
+  z-index: 200;
 }
 
 .menu,
@@ -206,10 +211,14 @@ nav a {
 .menu li a {
   display: block;
   padding: 15px 5px;
+  color: #2c2e35;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 .menu li.subitem a {
   padding: 15px;
+  font-weight: normal;
 }
 
 .toggle {
@@ -262,7 +271,11 @@ nav a {
 }
 
 /* Desktop menu */
-@media all and (min-width: 1100px) {
+@media all and (min-width: 1160px) {
+  .section {
+    background-color: transparent;
+  }
+
   .menu {
     align-items: flex-start;
     flex-wrap: nowrap;
@@ -271,6 +284,7 @@ nav a {
 
   .logo {
     order: 0;
+    padding-left: 10px;
   }
 
   .item {
@@ -278,10 +292,6 @@ nav a {
     position: relative;
     display: block;
     width: auto;
-  }
-
-  .button {
-    order: 2;
   }
 
   .submenu {
@@ -337,110 +347,79 @@ nav a {
 */
 footer {
   color: white;
-  padding-top: 10px;
-  margin-top: 2rem;
-  padding-bottom: 1rem;
+  background-color: #ffcd05;
+  min-height: 100px;
 }
 
-.contact-us footer {
-  margin-top: 0;
+.about .inner-container {
+  background-image: url(/images/about-strapline.svg);
+  background-repeat: no-repeat;
+  background-size: 40%;
+  background-position-x: 90%;
+  background-position-y: top;
+}
+.about main {
+  padding-top: 15rem;
+  display: grid;
+  grid-template-columns: 2fr 1.25fr 1fr;
+  background-image: url(/images/wave.svg);
+  background-repeat: no-repeat;
+  background-position-y: bottom;
 }
 
-.footer-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  width: 90%;
-  max-width: 1500px;
-  padding: 10px 0;
-  margin: 0 auto;
-}
-.footer-container ul,
-.footer-container li {
-  padding: 0;
-  margin: 0;
-}
-.footer-container p {
-  margin-bottom: 0;
-  color: white;
-}
-.footer-container a {
-  color: white;
-}
-.footer-container a:hover {
-  color: white;
+.ribbon {
+  position: absolute;
 }
 
-footer .footer-custom-menu-class {
-  display: flex;
-  justify-content: space-between;
-}
-footer .footer-custom-menu-class ul {
-  background-color: transparent;
-  padding: 0;
-  border: none;
-  display: flex;
-  justify-content: space-evenly;
-}
-footer .footer-custom-menu-class ul li {
-  padding: 0 10px;
-}
-footer .footer-custom-menu-class a {
-  padding-bottom: 0;
-  font-weight: normal;
-  color: white;
-  transition: none;
-  font-size: 0.8rem;
-  padding-right: 5px;
-  transition: 200ms;
-}
-footer .footer-custom-menu-class a:hover {
-  color: white;
-}
-footer .footer-custom-menu-class li::after {
-  content: "";
-  font-size: 1rem;
-  color: white;
+/*circle images*/
+.about-circle-01 {
+  margin-left: -7%;
+  align-self: end;
 }
 
-footer .footer-social-menu {
-  list-style-type: none;
-}
-
-.footer-social-menu a {
-  color: #fff;
-}
-
-.footer-social-menu a:hover {
-  color: white;
-}
-
-@media (max-width: 600px) {
-  footer .footer-custom-menu-class {
-    display: none;
-  }
-}
-/*social icons*/
-.footer-social-icons {
-  display: none;
-}
-
-.social-icon {
-  color: white;
-  margin-right: 5px;
-  transition: 200ms;
-}
-
-.social-icon:hover {
-  color: white;
+.about-circle-02 {
+  margin-left: -30%;
+  align-self: end;
 }
 
 /*///////////////////Buttons\\\\\\\\\\\\\\\\\\\\\*/
+/*icons*/
+.icons {
+  display: flex;
+  flex-direction: column;
+  align-self: end;
+  align-items: center;
+  z-index: 10;
+  justify-content: space-between;
+}
+
+.icons-item {
+  padding: 10px 0;
+}
+
+.fa-facebook {
+  color: #4372b8;
+}
+
+.fa-instagram {
+  color: #da1b52;
+}
+
+.fa-twitter {
+  color: #5ea9dd;
+}
+
 /*///////////////Ribbons\\\\\\\\\\\\\\\\\*/
 .ribbon {
   margin-left: -30px;
-  margin-top: -100px;
   min-width: 120%;
+}
+
+/*
+///////////////////////////CIRCLE IMAGES\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+*/
+.circles {
+  border-radius: 50%;
 }
 
 /*# sourceMappingURL=main.css.map */

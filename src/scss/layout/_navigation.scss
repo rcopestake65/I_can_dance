@@ -2,10 +2,8 @@
 /*
 ///////////////////////////NAVIGATION\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 */
-
-nav a {
-  color: $black;
-  text-decoration: none;
+nav {
+  z-index: 200;
 }
 .menu,
 .submenu {
@@ -30,9 +28,13 @@ nav a {
 .menu li a {
   display: block;
   padding: 15px 5px;
+  color: $black;
+  font-weight: bold;
+  text-decoration: none;
 }
 .menu li.subitem a {
   padding: 15px;
+  font-weight: normal;
 }
 .toggle {
   order: 1;
@@ -94,7 +96,10 @@ nav a {
 }
 
 /* Desktop menu */
-@media all and (min-width: 1100px) {
+@media all and (min-width: 1160px) {
+  .section {
+    background-color: transparent;
+  }
   .menu {
     align-items: flex-start;
     flex-wrap: nowrap;
@@ -102,15 +107,13 @@ nav a {
   }
   .logo {
     order: 0;
+    padding-left: 10px;
   }
   .item {
     order: 1;
     position: relative;
     display: block;
     width: auto;
-  }
-  .button {
-    order: 2;
   }
   .submenu {
     display: none;

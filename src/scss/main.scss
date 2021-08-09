@@ -9,5 +9,8 @@
 @use 'layout/navigation';
 @use 'layout/footer';
 
+@use 'pages/about';
+
 @use 'components/buttons';
 @use 'components/ribbons';
+@use 'components/circles';
