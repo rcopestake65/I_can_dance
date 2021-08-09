@@ -352,7 +352,7 @@ footer {
 }
 
 .about .inner-container {
-  background-image: url(images/about-strapline.svg);
+  background-image: url(../images/about-strapline.svg);
   background-repeat: no-repeat;
   background-size: 40%;
   background-position-x: 90%;
@@ -362,7 +362,7 @@ footer {
   padding-top: 15rem;
   display: grid;
   grid-template-columns: 2fr 1.25fr 1fr;
-  background-image: url(images/wave.svg);
+  background-image: url(../images/wave.svg);
   background-repeat: no-repeat;
   background-position-y: bottom;
 }
