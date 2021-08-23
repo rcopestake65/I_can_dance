@@ -210,7 +210,7 @@ body {
   }
 }
 .about .container {
-  background-image: url(images/ribbons/about.svg), url(images/wave.svg);
+  background-image: url(../images/ribbons/about.svg), url(../images/wave.svg);
   background-position: top -100px left 10px, bottom 0 left -40px;
   background-repeat: no-repeat;
   background-size: 110%;
