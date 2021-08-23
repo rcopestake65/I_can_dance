@@ -3,7 +3,21 @@
 ///////////////////////////FOOTER\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 */
 footer {
-  color: $white;
+  background-color: $yellow;
+}
+.wave {
+  display: none;
+}
+.footer-content {
   background-color: $yellow;
   min-height: 100px;
+  margin-top: -2px;
 }
+// @media only screen and (max-width: 1200px) {
+//   footer {
+//     background-color: transparent;
+//   }
+//   // .wave {
+//   //   display: block;
+//   // }
+// }

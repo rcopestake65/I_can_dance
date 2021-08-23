@@ -2,6 +2,8 @@
 @use 'base/typography';
 
 @use 'abstracts/abstracts';
+@use 'abstracts/utilities';
+@use 'abstracts/animation';
 
 @use 'layout/body';
 @use 'layout/container';
@@ -12,5 +14,4 @@
 @use 'pages/about';
 
 @use 'components/buttons';
-@use 'components/ribbons';
 @use 'components/circles';

@@ -75,11 +75,59 @@ select {
     scroll-behavior: auto !important;
   }
 }
+/*image hover effect*/
+.img-zoom {
+  width: 100%;
+  transition: 0.5s all ease-in-out;
+}
+
+.img-zoom:hover {
+  transform: rotate(5deg);
+}
+
+/*=== Trigger  ===*/
+.animate {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+/*=== strapline fade down ===*/
+.fadeInDownBig {
+  -webkit-animation-name: fadeInDownBig;
+  animation-name: fadeInDownBig;
+}
+
+@-webkit-keyframes fadeInDownBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -2000px, 0);
+    transform: translate3d(0, -2000px, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+@keyframes fadeInDownBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -2000px, 0);
+    transform: translate3d(0, -2000px, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
 /*
 //////////////////////TYPOGRAPHY\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 */
 p {
-  margin-bottom: 1rem;
+  padding-bottom: 1rem;
   font-size: 1.2rem;
   color: #2c2e35;
 }
@@ -151,14 +199,8 @@ body {
 ///////////////////////////CONTAINER\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 */
 .container {
-  width: 90%;
-  max-width: 1200px;
   padding: 0;
   margin: 0 auto;
-  position: relative;
-  -webkit-box-shadow: 0px 1px 5px 3px rgba(0, 0, 0, 0.1);
-  box-shadow: 0px 1px 5px 3px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
 }
 
 @media (max-width: 768px) {
@@ -167,7 +209,28 @@ body {
     padding: 0;
   }
 }
-main {
+.about .container {
+  background-image: url(/images/ribbons/about.svg), url(/images/wave.svg);
+  background-position: top -100px left 10px, bottom 0 left -40px;
+  background-repeat: no-repeat;
+  background-size: 110%;
+}
+
+/*remove background images on small screens*/
+@media only screen and (max-width: 1200px) {
+  .about .container {
+    background-size: 0, 110%;
+  }
+}
+/*shitf position of wave background svg on smaller screens so it sits on top of the footer section and not beneath it*/
+@media only screen and (max-width: 800px) {
+  .about .container {
+    background-position: top -100px left 10px, bottom 100px left -40px;
+  }
+}
+.inner-container {
+  max-width: 1400px;
+  margin: 0 auto;
   padding: 1rem;
 }
 
@@ -247,6 +310,7 @@ nav {
 
 .submenu {
   transition: visibility 0s, opacity 0.5s linear;
+  z-index: 10;
   min-width: 200px;
 }
 
@@ -285,6 +349,7 @@ nav {
   .logo {
     order: 0;
     padding-left: 10px;
+    flex-grow: 1;
   }
 
   .item {
@@ -346,18 +411,23 @@ nav {
 ///////////////////////////FOOTER\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 */
 footer {
-  color: white;
   background-color: #ffcd05;
-  min-height: 100px;
 }
 
-.about main {
+.wave {
+  display: none;
+}
+
+.footer-content {
+  background-color: #ffcd05;
+  min-height: 100px;
+  margin-top: -2px;
+}
+
+.about-grid {
   display: grid;
   grid-template-columns: 2fr 1.25fr 1fr;
   grid-template-rows: 1fr auto;
-  background-image: url(../images/wave.svg);
-  background-repeat: no-repeat;
-  background-position-y: bottom;
 }
 
 .strapline {
@@ -366,10 +436,6 @@ footer {
   grid-column: span 2/-1;
   width: 70%;
   justify-self: end;
-}
-
-.ribbon {
-  position: absolute;
 }
 
 /*circle images*/
@@ -381,11 +447,12 @@ footer {
 .about-circle-02 {
   margin-left: -30%;
   align-self: end;
+  z-index: 10;
 }
 
 /*smaller screen to one column*/
 @media (max-width: 768px) {
-  .about main {
+  .about .about-grid {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
   }
@@ -406,10 +473,6 @@ footer {
   .about-circle-02 {
     margin-left: 0;
     align-self: center;
-  }
-
-  .ribbon {
-    display: none;
   }
 }
 /*///////////////////Buttons\\\\\\\\\\\\\\\\\\\\\*/
@@ -437,12 +500,6 @@ footer {
 
 .fa-twitter {
   color: #5ea9dd;
-}
-
-/*///////////////Ribbons\\\\\\\\\\\\\\\\\*/
-.ribbon {
-  margin-left: -30px;
-  min-width: 120%;
 }
 
 /*
