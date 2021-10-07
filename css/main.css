@@ -407,6 +407,11 @@ nav {
     display: none;
   }
 }
+/*animated gif forced inline*/
+.logo img {
+  display: inline;
+}
+
 /*
 ///////////////////////////FOOTER\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 */

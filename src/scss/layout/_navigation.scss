@@ -1,4 +1,4 @@
-@use '../abstracts' as *;
+@use "../abstracts" as *;
 /*
 ///////////////////////////NAVIGATION\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 */
@@ -111,6 +111,7 @@ nav {
     padding-left: 10px;
     flex-grow: 1;
   }
+
   .item {
     order: 1;
     position: relative;
@@ -163,4 +164,8 @@ nav {
   .toggle {
     display: none;
   }
+}
+/*animated gif forced inline*/
+.logo img {
+  display: inline;
 }
